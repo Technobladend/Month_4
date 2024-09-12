@@ -1,5 +1,5 @@
 """
-URL configuration for homework_4 project.
+URL configuration for month_4 project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -16,11 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from posts.views import test_view, main_page_view
+from posts.views import test_view, main_page_view, post_list_view, post_detail_view
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/', test_view),
     path('', main_page_view),
+    path('posts/', post_list_view),
+    path('posts/<int:post_id>/', post_detail_view)   
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-]

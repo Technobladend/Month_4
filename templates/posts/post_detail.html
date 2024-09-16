@@ -17,4 +17,9 @@
     <a href="/posts/" class="btn btn-primary">back to Posts</a>
   </div>
 </div>
+<form action="" method="post">
+  {%csrf_token%}
+  {{form.as_p}}
+  <button href="/comments/create/" type="submit">Add Comment</button>
+</form>
 {%endblock%}

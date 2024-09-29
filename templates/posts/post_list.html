@@ -1,21 +1,43 @@
-
 {% extends 'base.html' %}
 {%load static%}
 
 {%block content%}
+<form action="" method="get" class="mb-4">
+  <div class="card mb-4 pd-10">
+    {{form.as_p}}
+  </div>
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
+<div>
 {%for post in posts%}
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 20rem;">
   {%if post.image%}
-  <img src="{{ post.image.url }}" class="card-img-top" alt="...">
+  <img src="{{post.image.url}}" class="card-img-top" alt="...">
   {%else%}
-  <img src="{% static 'image_holder.png ' %}" class="card-img-top" alt="...">
+  <img src="{% static 'image_holder.png '%}" class="card-img-top" alt="...">
   {%endif%}
   <div class="card-body">
     <h5 class="card-title">{{post.title}}</h5>
     <p class="card-text">{{post.content}}</p>
     <p class="card-text">{{post.rate}}</p>
-    <a href="/posts/{{post.id}}/" class="btn btn-primary">Post details</a>
+    <ul class="list-group list-group-flush">
+      {%for tag in post.tag.all%}
+        <li class="list-group-item">{{ tag.name }}</li>
+      {%endfor%}
+    </ul>
+    <p class="card-text">{{post.created_at}}</p>
+    <a href="/api/v1/posts/posts/{{post.id}}/" class="btn btn-primary">Post details</a>
   </div>
 </div>
 {%endfor%}
+</div>
+<div style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 20px">
+  {%for page in max_pages%}
+    {% if request.GET %}
+      <a class="btn btn-primary" href="{{request.get_full_path}}&page={{page}}">{{page}}</a>
+    {%else%}
+      <a class="btn btn-primary" href="{{request.get_full_path}}?page={{page}}">{{page}}</a>
+    {%endif%}
+  {%endfor%}
+    </div>
 {%endblock%}

@@ -1,5 +1,5 @@
 from django import forms
-from posts.models import Comment, Post
+from posts.models import Comment, Post, Tag
 
 
 class CommentForm(forms.ModelForm):
@@ -51,3 +51,32 @@ class PostForm2(forms.ModelForm):
                 raise forms.ValidationError("Content and title can't be the same.")
         
         return cleaned_data
+
+
+class SearchForm(forms.Form): 
+    search = forms.CharField(
+        required=False,
+        max_length=100,
+        min_length=1,
+        widget=forms.TextInput(
+            attrs={'placeholder': "Search",
+                   "class": "form-control"}
+        )
+    )
+    tag = forms.ModelMultipleChoiceField(
+        required=False,
+        queryset=Tag.objects.all(), 
+        widget=forms.CheckboxSelectMultiple
+        )
+    
+    ordering = (
+        ("created_at", 'По дате создания'),
+        ('-created_at', 'По дате создания (По убыванию)'),
+        ("title", 'По названию'),
+        ('-title', 'По названию (По убыванию)'),
+        ("rate", 'По рейтингу'),
+        ("-rate", 'По рейтингу (По убыванию)')
+    )
+
+
+    ordering = forms.ChoiceField(required=False, choices=ordering)

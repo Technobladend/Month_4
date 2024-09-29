@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -9,6 +10,9 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
@@ -22,9 +26,9 @@
     <title>My Website</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav-bar-jd">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Group 44-2</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -43,20 +47,24 @@
             </li>
             {% if request.user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="/posts/">Posts</a>
+              <a class="nav-link" href="/api/v1/parsing/films/">Films</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/posts/create/">Create Posts</a>
+              <a class="nav-link" href="/api/v1/posts/posts/">Posts</a>
             </li>
-            <li class="nav-item"></li>
-              <a class="nav-link" href="/logout/">Logout</a>
+            <li class="nav-item">
+              <a class="nav-link" href="/api/v1/posts/posts/create/">Create Posts</a>
             </li>
+            <a class="nav-link" href="/api/v1/users/profile/">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/api/v1/users/logout/">Logout</a>
             {% else %}
             <li class="nav-item">
-              <a class="nav-link" href="/login/">Login</a>
+              <a class="nav-link" href="/api/v1/users/login/">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/register/">Register</a>
+              <a class="nav-link" href="/api/v1/users/register/">Register</a>
             </li>
             {% endif %}
           </ul>
@@ -67,7 +75,7 @@
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-success" type="submit">
+            <button class="btn btn-outline-success" type="submit" id="search-btn">
               Search
             </button>
           </form>

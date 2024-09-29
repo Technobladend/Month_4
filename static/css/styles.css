@@ -1,0 +1,112 @@
+/* Container styling */
+body {
+    background-color: whitesmoke;
+  }
+  
+  .container {
+    justify-content: center;
+    align-items: center;
+    max-width: 500px; /* Limit width */
+    margin: auto; /* Center the container */
+    padding: 20px; /* Padding inside the container */
+    background-color: #ffffff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .mt-10 {
+    margin-top: 8%;
+  }
+
+  pt-10 {
+    padding: 0px 10px 0px !important;
+  }
+
+  #nav-bar-jd {
+    background-color: #343a40 !; /* Dark grey background */
+    color: #ffffff; /* White text color */
+    padding: 15px; /* Padding inside the navigation bar */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+
+  #searh-btn {
+    border-color: #044c9a;
+    color: #044c9a;
+  }
+
+  #detail-card {
+    padding: 20px;
+    background-color: #f8f9fa; /* Light grey background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 20px; /* Space below the card */
+    border: 1px solid #ced4da; /* Border */
+  }
+
+  
+  h2 {
+    margin-bottom: 20px; /* Space below heading */
+  }
+  
+  .errorlist {
+    padding: 10px;
+    color: red;
+    background-color: rgba(255, 0, 0, 0.192); /* Red text color */
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside input */
+    margin-bottom: 15px; /* Space below inputs */
+    border: 1px solid #ced4da; /* Border */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  .form-group input[type="submit"] {
+    background-color: #044c9a; /* Dark blue */
+    color: #ffffff; /* White text color */
+  }
+  .btn {
+    width: 150px;
+    padding: 10px; /* Padding inside button */
+    border-radius: 10px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+
+  .btn-wd {
+    width: 100% !important;
+  }
+  
+  .btn:hover {
+    background-color: #044c9a; /* Darker blue on hover */
+  }
+
+  .input-container {
+    position: relative;
+    width: 300px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+input:focus {
+    border-color: #1e90ff;
+    box-shadow: 0 6px 12px rgba(30, 144, 255, 0.3);
+}
+
+input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+  
